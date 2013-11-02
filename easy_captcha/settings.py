@@ -1,10 +1,10 @@
 # Django settings for easy_captcha project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+        ('SYQuek', 'quek@gozolabs.com'),
 )
 
 MANAGERS = ADMINS
@@ -156,3 +156,15 @@ LOGGING = {
         },
     }
 }
+
+import os
+
+# FOR RECAPTCHA
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
