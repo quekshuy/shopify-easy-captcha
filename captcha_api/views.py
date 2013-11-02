@@ -1,4 +1,6 @@
 from recaptcha.client import captcha
+
+from django.views.generic.base import View
 from django.conf import settings
 
 class CaptchaAPIView(object):
@@ -21,7 +23,7 @@ class CaptchaAPIView(object):
                 private_key,
                 remote_addr
                 )
-        if response.is_valid():
+        if response.is_valid:
             return HttpResponse(status=200)
 
         return HttpResponse(
